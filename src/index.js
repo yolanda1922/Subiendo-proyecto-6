@@ -13,8 +13,7 @@ connectDB();
 //middleware to parse JSON bodies
 app.use(express.json());
 
-//creacion de metodos para el modelo mediacion
-app.use(express.json());
+
 
 // -- NEW: captura errores de JSON inválido provenientes de express.json()
 app.use((err, req, res, next) => {
@@ -45,6 +44,7 @@ app.post("/mediaciones/create", async (req, res) => {//localhost:3000/mediacione
 app.put("/mediaciones/update/:id", async (req, res) => {
   //localhost:3000/mediaciones/update/:id
   try {
+    //este es el controlador para actualizar una mediacion
     const { id } = req.params;
     const { name, price } = req.body;
     const updatedMediacion = await Mediacion.findByIdAndUpdate(
